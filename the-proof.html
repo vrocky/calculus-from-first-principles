@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Proof — Taylor Series by Pure Algebra</title>
+<meta name="description" content="The keystone: assume a function ripples through every order of the infinitely small, peel the layers one at a time with elementary algebra, and the Taylor series is forced into existence.">
+<link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">First Principles</a>
+    <div class="nav-links">
+      <a href="index.html">The Idea</a>
+      <a href="orders-of-infinitesimals.html">The Hidden World</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="the-journey.html">The Journey</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:4rem 0 3rem;">
+  <div class="wrap">
+    <div class="eyebrow">Chapter Two — The Keystone</div>
+    <h1>Taylor, by Pure Algebra</h1>
+    <p class="lede">No slopes. No areas. No memorised formulas. One assumption, and then we simply read the floors.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="lead dropcap">We now do the central thing this entire site is built on. We will <em>not</em> define the derivative and grind toward the Taylor series at the end of a long course. We will run it backward: assume a function ripples through the hidden world, and let the algebra <strong>force</strong> every coefficient into place. What emerges, with no further input, is the Taylor series — and the derivative as merely its first floor.</p>
+
+    <hr class="fancy">
+
+    <div class="section-tag">Step 0 — The one assumption</div>
+    <h2>Postulate the ripple</h2>
+
+    <p>Suppose that when we disturb the input of $f$ by an infinitesimal $\Delta x$, the output responds across every order of the hidden world:</p>
+
+    <p>$$f(x+\Delta x) = A_0 + A_1\,\Delta x + A_2\,(\Delta x)^2 + A_3\,(\Delta x)^3 + \cdots$$</p>
+
+    <p>The numbers $A_0, A_1, A_2, \dots$ are unknown — they measure how strongly the disturbance rings on floor $0$, floor $1$, floor $2$, and so on. We make <strong>no other assumption</strong>. We do not yet know what a derivative is. We will simply fish out each $A_n$ using the <a href="orders-of-infinitesimals.html">separation principle</a> from the last chapter.</p>
+
+    <div class="box honest">
+      <div class="box-label">What we are really proving</div>
+      <p>This is an <strong>"if–then."</strong> <em>If</em> a function can be written this way at all, <em>then</em> its coefficients are forced to be one specific thing. That is a <strong>uniqueness theorem</strong> — and it is exactly how a working mathematician proves that a power series representation is unique. We are not asserting every function has a ripple; we are showing that when one does, its shape is not a matter of choice.</p>
+    </div>
+
+    <hr class="fancy">
+
+    <div class="section-tag">The peeling</div>
+    <h2>Read the floors, one at a time</h2>
+
+    <div class="step">
+      <span class="step-no">Floor 0 — the point</span>
+      <p>Set $\Delta x = 0$. Every term carrying a $\Delta x$ collapses, and only the ground floor survives:</p>
+      <p>$$f(x+0) = A_0 + A_1\cdot 0 + A_2\cdot 0^2 + \cdots = A_0.$$</p>
+      <p>Since $f(x+0) = f(x)$, the very first coefficient is simply the value of the function:</p>
+      <p>$$\boxed{A_0 = f(x).}$$</p>
+    </div>
+
+    <div class="step">
+      <span class="step-no">Floor 1 — the line</span>
+      <p>Subtract the ground floor we just found, then divide the whole tower by $\Delta x$. By the separation principle, every floor drops one step:</p>
+      <p>$$\frac{f(x+\Delta x) - f(x)}{\Delta x} = A_1 + A_2\,\Delta x + A_3\,(\Delta x)^2 + \cdots$$</p>
+      <p>Now let $\Delta x \to 0$. Everything still carrying a $\Delta x$ falls away into the basement, leaving exactly one number:</p>
+      <p>$$\lim_{\Delta x\to 0}\frac{f(x+\Delta x) - f(x)}{\Delta x} = A_1.$$</p>
+      <p>That left-hand side is what the rest of the world calls the <strong>derivative</strong>. In our telling, it was never the starting point — it is just <em>the coefficient on the first floor</em>:</p>
+      <p>$$\boxed{A_1 = f'(x).}$$</p>
+    </div>
+
+    <div class="step">
+      <span class="step-no">Floor 2 — the square</span>
+      <p>Peel off floors $0$ and $1$, then divide by $\Delta x^2$ to lift the square down to where we can see it:</p>
+      <p>$$\frac{f(x+\Delta x) - f(x) - f'(x)\,\Delta x}{(\Delta x)^2} = A_2 + A_3\,\Delta x + \cdots$$</p>
+      <p>Let $\Delta x \to 0$, and only $A_2$ remains. We will see in a moment — by counting, not by calculus — that this floor holds $\tfrac{1}{2}f''(x)$:</p>
+      <p>$$\boxed{A_2 = \frac{f''(x)}{2!}.}$$</p>
+    </div>
+
+    <div class="step">
+      <span class="step-no">Floor n — the pattern</span>
+      <p>Nothing about the procedure changes. To reach floor $n$, subtract everything below it and divide by $(\Delta x)^n$. One number survives, and it is always the $n$-th derivative divided by $n$-factorial:</p>
+      <p>$$\boxed{A_n = \frac{f^{(n)}(x)}{n!} \qquad n = 0,1,2,3,\dots}$$</p>
+    </div>
+
+    <p>Put the floors back together and there is the Taylor series — not imported, not believed, but <strong>assembled from the orders of the hidden world</strong>:</p>
+
+    <p>$$f(x+\Delta x) = f(x) + f'(x)\,\Delta x + \frac{f''(x)}{2!}(\Delta x)^2 + \frac{f^{(3)}(x)}{3!}(\Delta x)^3 + \cdots$$</p>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div class="section-tag">Closing the one gap</div>
+    <h2>Where the factorial really comes from</h2>
+
+    <p>On floor 2 we claimed $A_2 = \tfrac{1}{2}f''(x)$ and kept moving. An honest foundation should not wave at that — so here is the factorial appearing out of <strong>pure counting</strong>, with no derivative borrowed from outside.</p>
+
+    <p>Sample the function at evenly spaced points $x, x+h, x+2h, \dots$ and feed each one into the ripple. Because $f(x+kh)$ carries $A_n$ with a factor $k^n$, the samples read:</p>
+
+    <p>$$\begin{aligned}
+    f(x+h)  &= A_0 + A_1 h + A_2 h^2 + A_3 h^3 + \cdots\\
+    f(x+2h) &= A_0 + 2A_1 h + 4A_2 h^2 + 8A_3 h^3 + \cdots\\
+    f(x+3h) &= A_0 + 3A_1 h + 9A_2 h^2 + 27A_3 h^3 + \cdots
+    \end{aligned}$$</p>
+
+    <p>Now build a combination engineered to <em>annihilate the lower floors</em>. The "second difference" does exactly this:</p>
+
+    <p>$$f(x) - 2f(x+h) + f(x+2h) = 2\,A_2 + 6\,A_3\,h + 14\,A_4\,h^2 + \cdots$$</p>
+
+    <p>Floor 0 and floor 1 cancel perfectly — by design — and the leading survivor is $2A_2$. Divide by $h^2$ and take $h \to 0$:</p>
+
+    <p>$$A_2 = \frac{f(x) - 2f(x+h) + f(x+2h)}{2\,h^2}\bigg|_{h\to 0} = \frac{f''(x)}{2}.$$</p>
+
+    <div class="box intuition">
+      <div class="box-label">The real origin of n!</div>
+      <p>Notice the $2$ in front of $A_2$, the $6$ that will sit in front of $A_3$, the $24$ in front of $A_4$. These are $2!, 3!, 4!$ — and they did not come from differentiating anything. They came from the <strong>binomial arithmetic</strong> of stacking the differences, from the $k^n$ that counting forces. In the standard course the factorial is a leftover from differentiating $\Delta x^n$ repeatedly. Here it is born from <em>counting</em>. Same number — humbler, more elementary origin.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">What we have earned</div>
+    <h2>The Taylor series was the foundation all along</h2>
+
+    <p>Step back and see what the algebra has bought us with a single assumption and the separation principle:</p>
+
+    <ul>
+      <li>The <strong>derivative</strong> is not a primitive idea. It is the coefficient on floor 1.</li>
+      <li>The <strong>Taylor series</strong> is not an advanced tool reserved for the end of the course. It is the most basic description of a function near a point — the full census of the hidden world.</li>
+      <li>The <strong>factorials</strong> are not mysterious. They are the cost of counting, the binomial weights that fall out when you stack samples.</li>
+    </ul>
+
+    <p>The traditional ordering — limits, then derivatives, then, much later, series — turns out to be upside down. The series is the deepest object and the simplest to motivate. Everything else is a reading of one of its floors.</p>
+
+    <p class="pull">A function near a point is its ripple through the orders of the small. To differentiate is to ask which floor you want to hear.</p>
+
+    <p>From here, every other rule of calculus is the same move repeated. Multiply two ripples and read floor 1 — there is the product rule. Feed one ripple into another — there is the chain rule. Telescope the floors backward instead of forward — there is integration, and the Fundamental Theorem with it. The <a href="the-journey.html">full journey</a> lays them out, each one falling from this single idea.</p>
+
+    <div class="btn-row">
+      <a class="btn" href="the-journey.html">See the whole journey →</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="pager">
+      <a href="orders-of-infinitesimals.html"><span class="label">Back</span>← The Hidden World</a>
+      <a href="the-journey.html"><span class="label">Next</span>The Journey: one engine, all of calculus →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Calculus from First Principles</strong> — The Hidden World of Orders of the Infinitely Small</p>
+    <p>The proof of this chapter is a uniqueness theorem in the lineage of Newton, Taylor, and Euler: when a function has a series, its shape is forced.</p>
+  </div>
+</footer>
+
+</body>
+</html>

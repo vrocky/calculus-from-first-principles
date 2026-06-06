@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden World — Orders of the Infinitely Small</title>
+<meta name="description" content="The geometric foundation: a point, a line, a square, a cube — and how they reveal that the infinitely small comes in orders.">
+<link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">First Principles</a>
+    <div class="nav-links">
+      <a href="index.html">The Idea</a>
+      <a href="orders-of-infinitesimals.html">The Hidden World</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="the-journey.html">The Journey</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:4rem 0 3rem;">
+  <div class="wrap">
+    <div class="eyebrow">Chapter One</div>
+    <h1>The Hidden World</h1>
+    <p class="lede">Before a single derivative, we need to see the staircase of smallness that everything else stands on.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="lead dropcap">Most people think the infinitely small is a single destination — a place called "zero" that quantities sink toward. It is not. The infinitely small is a <strong>structured world</strong>, with floors and basements, and the first job of calculus is to learn to read its address system.</p>
+
+    <p>We can build the whole thing from shapes a child already knows.</p>
+
+    <hr class="fancy">
+
+    <div class="section-tag">The construction</div>
+    <h2>Point, line, square, cube</h2>
+
+    <p>Take a length and shrink it until it is vanishingly small. Call that tiny length $\Delta x$. Now build the familiar shapes from it and ask how big each one is:</p>
+
+    <div class="hero-orders" style="margin:2.5rem auto;" aria-hidden="true">
+      <div class="glyph"><span class="shape pt"></span><span class="lab">point</span><br><span class="ord">size 1</span></div>
+      <div class="glyph"><span class="shape ln"></span><span class="lab">line</span><br><span class="ord">size Δx</span></div>
+      <div class="glyph"><span class="shape sq"></span><span class="lab">square</span><br><span class="ord">size Δx²</span></div>
+      <div class="glyph"><span class="shape cb"></span><span class="lab">cube</span><br><span class="ord">size Δx³</span></div>
+    </div>
+
+    <p>The line has length $\Delta x$. The square has area $\Delta x \times \Delta x = \Delta x^2$. The cube has volume $\Delta x^3$. Nothing surprising — yet. The surprise is in the <em>ratios</em>.</p>
+
+    <div class="box intuition">
+      <div class="box-label">The key observation</div>
+      <p>How big is the tiny square <em>compared to</em> the tiny line? Their ratio is</p>
+      <p style="text-align:center;">$\dfrac{\Delta x^2}{\Delta x} = \Delta x \;\longrightarrow\; 0.$</p>
+      <p>The square is not just smaller than the line — it is <strong>infinitely smaller</strong>, in exactly the way a line is infinitely smaller than the plane it lies in. A line is a <em>nothing</em> of area. A point is a <em>nothing</em> of length. Each shape is an abyss below the one before it.</p>
+    </div>
+
+    <p>This gives us the staircase. Each shape lives on its own floor of smallness, and the floors are separated by unbridgeable gaps:</p>
+
+    <p>$$\underbrace{1}_{\text{point}} \;\ggg\; \underbrace{\Delta x}_{\text{line}} \;\ggg\; \underbrace{\Delta x^2}_{\text{square}} \;\ggg\; \underbrace{\Delta x^3}_{\text{cube}} \;\ggg\; \cdots$$</p>
+
+    <p>We call the floor a quantity lives on its <strong>order</strong>. The line is a <em>first-order</em> infinitesimal. The square is <em>second-order</em>. The cube, <em>third-order</em>. A point — a plain number that does not shrink at all — is <em>order zero</em>.</p>
+
+    <p class="pull">The infinitely small is not a number. It is a staircase, and every step is a private world.</p>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div class="section-tag">Why it matters</div>
+    <h2>The one property we will use everywhere</h2>
+
+    <p>The staircase has a single feature that powers the entire subject, and it is worth stating on its own:</p>
+
+    <div class="box">
+      <div class="box-label">The separation principle</div>
+      <p>If you take the whole tower and divide it by $\Delta x$, every floor drops by exactly one step. The point becomes "infinitely large," the line becomes order zero, the square becomes order one, and so on. Divide by $\Delta x^2$ and everything drops by two.</p>
+      <p style="margin-top:0.8rem;">This means we can <strong>aim</strong> at any single floor. Want to read what lives on the square? Divide by $\Delta x^2$ to lift the square down to order zero — where you can finally see it as an ordinary number — while everything above it is sent off to vanish and everything below stays buried. The orders never bleed into one another.</p>
+    </div>
+
+    <p>Hold onto that. It is the only tool we need. In the <a href="the-proof.html">next chapter</a> we will point it at a function and watch the Taylor series fall out — not as a theorem to be believed, but as the inevitable answer to a question about floors.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">A first taste</div>
+    <h2>The square already knows the product rule</h2>
+
+    <p>Before we go further, here is a glimpse of how much the dimensional picture quietly contains. Grow the side of a square from $x$ to $x + \Delta x$ and ask how the area changes:</p>
+
+    <p>$$(x+\Delta x)^2 \;=\; \underbrace{x^2}_{\text{original square}} \;+\; \underbrace{2x\,\Delta x}_{\text{two strips}} \;+\; \underbrace{(\Delta x)^2}_{\text{corner square}}.$$</p>
+
+    <p>Look at the geometry literally. The new area is made of three pieces: the original square, <strong>two thin strips</strong> of size $x \times \Delta x$ along the edges, and one <strong>tiny corner square</strong> of size $\Delta x \times \Delta x$.</p>
+
+    <ul>
+      <li>The two strips are <strong>first-order</strong> — length $x$, width $\Delta x$. Their total, $2x\,\Delta x$, is the real change.</li>
+      <li>The corner is <strong>second-order</strong> — a $\Delta x^2$ speck, a point-to-the-square. It is the part we are allowed to discard.</li>
+    </ul>
+
+    <p>Throw away the corner, divide the strips by $\Delta x$, and you have just computed</p>
+
+    <p>$$\frac{d}{dx}\,x^2 = 2x$$</p>
+
+    <p>— not by a rule, but by <em>seeing which floor each piece of the area lives on</em>. The corner square is "negligible" for a reason you can point at: it is one whole order of smallness deeper than the strips. The dimensional intuition is not a picture <em>of</em> the derivative. It <strong>is</strong> the derivative.</p>
+
+    <div class="box intuition">
+      <div class="box-label">The thread to follow</div>
+      <p>Every differentiation rule in this course is this same moment, dressed differently: write the change in orders of $\Delta x$, keep the first-order strips, discard the higher-order corners. Hold the image of the growing square. We will return to it again and again.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="pager">
+      <a href="index.html"><span class="label">Back</span>← The Idea</a>
+      <a href="the-proof.html"><span class="label">Next</span>The Proof: Taylor by pure algebra →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Calculus from First Principles</strong> — The Hidden World of Orders of the Infinitely Small</p>
+  </div>
+</footer>
+
+</body>
+</html>

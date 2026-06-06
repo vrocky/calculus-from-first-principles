@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden World of Orders — Calculus from First Principles</title>
+<meta name="description" content="A new entry point to calculus: start from the hidden world of orders of the infinitely small, watch a function ripple through every layer, and discover that the Taylor series falls out of simple algebra.">
+<link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">First Principles</a>
+    <div class="nav-links">
+      <a href="index.html">The Idea</a>
+      <a href="orders-of-infinitesimals.html">The Hidden World</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="the-journey.html">The Journey</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Calculus from First Principles</div>
+    <h1>The Hidden World of<br>Orders of the Infinitely Small</h1>
+    <p class="lede">What if calculus did not begin with slopes — but with a layered world you cannot see, and the ripple a function makes when you disturb it?</p>
+
+    <div class="hero-orders" aria-hidden="true">
+      <div class="glyph"><span class="shape pt"></span><span class="lab">point</span><br><span class="ord">order&nbsp;0</span></div>
+      <div class="glyph"><span class="shape ln"></span><span class="lab">line</span><br><span class="ord">order&nbsp;1 &nbsp;·&nbsp; Δx</span></div>
+      <div class="glyph"><span class="shape sq"></span><span class="lab">square</span><br><span class="ord">order&nbsp;2 &nbsp;·&nbsp; Δx²</span></div>
+      <div class="glyph"><span class="shape cb"></span><span class="lab">cube</span><br><span class="ord">order&nbsp;3 &nbsp;·&nbsp; Δx³</span></div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn" href="orders-of-infinitesimals.html">Enter the hidden world →</a>
+      <a class="btn ghost" href="the-proof.html">Skip to the proof</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">The Complaint</div>
+    <h2>Nobody tells you where it comes from</h2>
+    <p class="dropcap">Open almost any calculus course and the first thing you are handed is a <em>chore</em>: form the quotient $\dfrac{f(x+h)-f(x)}{h}$, take a limit, call it the derivative. You can turn that crank for a year and never be told <strong>why</strong> — why the limit, why the factorials that show up later, why the Taylor series arrives like a magic trick in the final weeks of the course.</p>
+
+    <p>The derivative is taught as a procedure before it is ever shown as an idea. And the Taylor series — which is arguably the <em>real</em> object, the thing a function genuinely <em>is</em> near a point — is postponed to the very end, as if it were an advanced afterthought rather than the foundation.</p>
+
+    <p>This site takes the opposite road. We begin where the idea actually lives.</p>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div class="section-tag">The Idea</div>
+    <h2>Reality is layered. The layers are orders of smallness.</h2>
+
+    <p>Picture the simplest hierarchy in geometry. A <strong>point</strong> has no length. A <strong>line</strong> is built from a length. A <strong>square</strong> is a length times a length. A <strong>cube</strong>, a length cubed.</p>
+
+    <p>Now shrink that length to something vanishingly small — call it $\Delta x$. Watch what happens to each shape:</p>
+
+    <div class="box intuition">
+      <div class="box-label">The dimensional ladder</div>
+      <p>A tiny line has size $\Delta x$. A tiny square has size $\Delta x^2$ — and a square is <em>infinitely smaller</em> than the line, the way a line is infinitely smaller than the plane it sits in. A tiny cube, $\Delta x^3$, is smaller still.</p>
+      <p style="margin-top:0.8rem;">So the infinitely small is not one thing. It comes in <strong>orders</strong> — a whole nested staircase of smallness, each step unreachably below the last. A first-order small. A second-order small. A third. A hidden world, stacked beneath the one we see.</p>
+    </div>
+
+    <p class="pull">A point is to a line what a line is to a square — and that single ratio, repeated, is the entire skeleton of calculus.</p>
+
+    <p>This is not a metaphor we will quietly drop. It is the engine. Everything that follows is just a careful reading of which layer each piece of a function lives on.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">The Move</div>
+    <h2>Disturb a function. Watch the ripple.</h2>
+
+    <p>Here is the whole programme in one sentence. Take a function, nudge its input by an infinitesimal $\Delta x$, and the output does <strong>not</strong> respond at a single level — it ripples through <em>every order of the hidden world at once</em>:</p>
+
+    <p>$$f(x+\Delta x) \;=\; \underbrace{A_0}_{\text{order }0} \;+\; \underbrace{A_1\,\Delta x}_{\text{order }1} \;+\; \underbrace{A_2\,(\Delta x)^2}_{\text{order }2} \;+\; \underbrace{A_3\,(\Delta x)^3}_{\text{order }3} \;+\; \cdots$$</p>
+
+    <p>Each coefficient $A_n$ is the strength of the ripple on layer $n$. We do not yet know what these numbers are. But here is the beautiful part — <strong>we can fish them out one at a time, using nothing but algebra</strong>, because each layer is infinitely separated from the others. Divide by $\Delta x$ and the higher layers still vanish. Divide by $\Delta x^2$ and you reach into the square. The geometry guarantees the layers do not interfere.</p>
+
+    <p>When you carry this out — the <a href="the-proof.html">peeling</a>, layer by layer — the coefficients are forced to be exactly:</p>
+
+    <p>$$A_0 = f(x), \qquad A_1 = f'(x), \qquad A_2 = \frac{f''(x)}{2!}, \qquad A_n = \frac{f^{(n)}(x)}{n!}.$$</p>
+
+    <div class="box">
+      <div class="box-label">What just happened</div>
+      <p>The <strong>Taylor series was not assumed and it was not memorised. It fell out.</strong> It is simply the answer to the question, <em>"how strongly does a disturbance ring on each layer of the hidden world?"</em> The derivative is just the order-1 coefficient. The factorial is just the bookkeeping of counting. There is no magic — only a structure made visible.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div class="section-tag">Honesty</div>
+    <h2>The world is real — and it is not the whole of reality</h2>
+    <p>An honest foundation names its own edges. Two, in particular, are worth knowing from the start — and both make the picture <em>deeper</em>, not weaker.</p>
+
+    <div class="box honest">
+      <div class="box-label">There is no smallest number</div>
+      <p>Name any tiny positive number and half of it is smaller. So "the smallest number" does not literally exist. We mean something sharper: a quantity <em>smaller than any you can name</em> — and whose square is so much smaller still that, at the first layer, it is simply invisible. The hidden world is a world of <em>relative</em> smallness, not a smallest atom.</p>
+    </div>
+
+    <div class="box honest">
+      <div class="box-label">A basement below the layers</div>
+      <p>This whole method assumes a function's ripple actually <em>reaches</em> the layers — that it can be written as such a series at all. Almost every function you will meet obliges. But a few ghosts move without leaving a trace on any layer (the famous one is $e^{-1/x^2}$, whose every order reads zero, yet which is not zero). So the orders capture almost everything — and there is still a deeper basement beneath them. We start in the layered world; later, we learn the world goes further down than the layers.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">Where this goes</div>
+    <h2>One engine, the whole of calculus</h2>
+    <p>Once you can read a function layer by layer, the rest of the subject stops being a list of rules to memorise and becomes a single idea, applied over and over:</p>
+
+    <div class="cards">
+      <a class="card" href="the-proof.html">
+        <span class="card-no">The Keystone</span>
+        <h4>Taylor by pure algebra</h4>
+        <p>Peel the ripple layer by layer. The coefficients are forced. The factorial falls out of counting, not calculus.</p>
+      </a>
+      <a class="card" href="the-journey.html">
+        <span class="card-no">The Rules</span>
+        <h4>Product &amp; chain rule</h4>
+        <p>Multiply two ripples, or feed one into another, and read off layer 1. The rules are patterns, not edicts.</p>
+      </a>
+      <a class="card" href="the-journey.html">
+        <span class="card-no">The Mirror</span>
+        <h4>Integration &amp; the FTC</h4>
+        <p>Differentiation reads the first layer forward. Integration telescopes it backward. The same idea, reversed — which is <em>why</em> they are inverse.</p>
+      </a>
+    </div>
+
+    <p>That last point is the summit of the whole journey. In the usual course, the Fundamental Theorem — that slopes and areas are secretly inverse — lands like a miracle. Here it is structurally inevitable: it is <em>the same coefficient, read in two directions.</em></p>
+
+    <div class="btn-row">
+      <a class="btn" href="orders-of-infinitesimals.html">Begin: The Hidden World →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Calculus from First Principles</strong> — The Hidden World of Orders of the Infinitely Small</p>
+    <p>An entry point in the lineage of Newton, Taylor, Euler, and the Kerala school — where a function is its series, and the series is read one layer at a time.</p>
+  </div>
+</footer>
+
+</body>
+</html>

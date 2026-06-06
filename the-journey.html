@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Journey — One Engine, All of Calculus</title>
+<meta name="description" content="The full arc: from the hidden world of orders, through the differentiation rules, L'Hopital, and integration, to the Fundamental Theorem — all from a single idea.">
+<link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">First Principles</a>
+    <div class="nav-links">
+      <a href="index.html">The Idea</a>
+      <a href="orders-of-infinitesimals.html">The Hidden World</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="the-journey.html">The Journey</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:4rem 0 3rem;">
+  <div class="wrap">
+    <div class="eyebrow">The Full Arc</div>
+    <h1>One Engine,<br>All of Calculus</h1>
+    <p class="lede">Nine movements, a single idea — read a function's ripple layer by layer, forward to differentiate, backward to integrate.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="lead dropcap">Everything in this course runs on one machine, pointed in two directions. <strong>Forward:</strong> write $f(x+\Delta x)$ in orders of $\Delta x$ and read off the first floor — that is differentiation. <strong>Backward:</strong> write a <em>difference</em> of an antiderivative in orders of $\Delta x$ and let the sum telescope — that is integration. The two are the same act reversed, which is precisely why they undo each other.</p>
+
+    <div class="box">
+      <div class="box-label">The engine, stated once</div>
+      <p>To learn anything about a function near a point, expand it into the orders of the hidden world and look at the floor you care about. Differentiation rules read floor 1 of a combination. Integration reads floor 1 backward and lets the layers cancel. Nothing else is needed.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap-wide">
+    <div class="section-tag">The nine movements</div>
+    <h2>The map</h2>
+
+    <table class="journey">
+      <thead>
+        <tr><th>Part</th><th>What it establishes</th><th>The single move</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>I</td><td>The foundation — Taylor from first principles</td><td>Assume the ripple; peel the floors; the coefficients are forced to be $f^{(n)}/n!$</td></tr>
+        <tr><td>II</td><td>The differentiation rules</td><td>Multiply two ripples → product rule; feed one into another → chain rule. Read floor 1.</td></tr>
+        <tr><td>III</td><td>L'Hôpital's rule</td><td>In a $0/0$ quotient, the lowest surviving floor decides the limit.</td></tr>
+        <tr><td>IV</td><td>Division &amp; reciprocals</td><td>Expand $\tfrac{1}{x+h}$ by long division; the coefficient of $h$ is the derivative of $x^{-1}$.</td></tr>
+        <tr><td>V</td><td>The division-built derivatives</td><td>$\sec, \csc, \tan, \log$ — each one is the coefficient of $h$ in a reciprocal ripple.</td></tr>
+        <tr><td>VI</td><td>Integration from first principles</td><td>Sum infinitesimal contributions; $\int 1,\ \int x,\ \int x^2$ from summation patterns.</td></tr>
+        <tr><td>VII</td><td>The Fundamental Theorem</td><td>The difference of the antiderivative telescopes to $F(N)-F(0)$.</td></tr>
+        <tr><td>VIII</td><td>Difference equations for antiderivatives</td><td>Reverse-engineer $\int\cos,\ \int\sin,\ \int\tfrac{1}{x}$ from telescoping differences.</td></tr>
+        <tr><td>IX</td><td>Integration by parts</td><td>The difference of a product telescopes; the parts formula falls out.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">Movement II</div>
+    <h2>The rules are patterns, not edicts</h2>
+
+    <p>Take two functions, each with its own ripple, $f(x+h) = A_0 + A_1 h + \cdots$ and $g(x+h) = B_0 + B_1 h + \cdots$. Multiply them and collect by floor:</p>
+
+    <p>$$f(x+h)\,g(x+h) = A_0 B_0 + h\,(A_0 B_1 + A_1 B_0) + h^2(\cdots) + \cdots$$</p>
+
+    <p>Floor 1 reads $A_0 B_1 + A_1 B_0$ — which is $f(x)g'(x) + f'(x)g(x)$. <strong>That is the product rule</strong>, and it was nothing but the coefficient of $h$ when two ripples meet. Feed one ripple into another instead, and the coefficient of $h$ comes out $f'(g(x))\,g'(x)$ — <strong>the chain rule</strong>. The rules you once memorised are just what floor 1 says when functions combine.</p>
+
+    <div class="box intuition">
+      <div class="box-label">Back to the growing square</div>
+      <p>The product rule is the two-strips-and-a-corner picture again. $A_0 B_1$ and $A_1 B_0$ are the two strips; the discarded $h^2$ term is the corner. Every rule in Part II is the <a href="orders-of-infinitesimals.html">growing square</a> wearing a new costume.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div class="section-tag">Movements VI–VII · The Summit</div>
+    <h2>Why slopes and areas are secretly the same</h2>
+
+    <p>In the usual course, the Fundamental Theorem of Calculus arrives as a shock: why on earth should the slope of a curve and the area under one be inverse operations? They look nothing alike. Students take it on faith.</p>
+
+    <p>In this telling there is no shock, because both are the <em>same coefficient read in opposite directions</em>. Integration sums infinitesimal contributions; if $F$ is an antiderivative, each contribution is a floor-1 difference of $F$:</p>
+
+    <p>$$\int_0^N f(x)\,dx = \lim_{\Delta x\to 0}\sum_i \big[F(i\Delta x + \Delta x) - F(i\Delta x)\big].$$</p>
+
+    <p>Write the sum out and watch it <strong>telescope</strong> — every interior term cancels its neighbour, leaving only the ends:</p>
+
+    <p>$$\big[F(\Delta x) - F(0)\big] + \big[F(2\Delta x) - F(\Delta x)\big] + \cdots = F(N) - F(0).$$</p>
+
+    <p>$$\boxed{\int_0^N f(x)\,dx = F(N) - F(0).}$$</p>
+
+    <div class="box">
+      <div class="box-label">The structural punchline</div>
+      <p>Differentiation reads floor 1 <em>forward</em>. Integration reads floor 1 <em>backward</em> and lets the layers cancel. They are inverse not by coincidence but by <strong>construction</strong> — the same step, run the other way. The Fundamental Theorem stops being a miracle and becomes a sentence about a telescoping sum.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">An honest seam</div>
+    <h2>Where the world changes gear</h2>
+
+    <p>One thing worth naming plainly. The first half of the journey (Parts I–V) lives in <strong>analytic-function land</strong>, where every function has a full ripple through the orders. The second half (Parts VI–IX) leans instead on <strong>finite differences and known summation patterns</strong>. Both are sound; they are two faces of the same idea — the algebra of smooth functions, and the algebra of accumulation. The bridge between them is the telescoping sum, where a difference on each small interval adds up to a difference at the ends. Knowing the gear-change is there is part of understanding the machine.</p>
+
+    <hr class="fancy">
+
+    <div class="section-tag">The lineage</div>
+    <h2>Old roots, unfairly buried</h2>
+
+    <p>This is not a novelty. Starting from series and reading coefficients is how the subject was <em>born</em>. Newton worked with infinite series as primary objects; Euler computed with them fearlessly; and the <strong>Kerala school of mathematics</strong> in India had power-series expansions for sine, cosine, and arctangent some <strong>two and a half centuries before Newton</strong>. The series-first view was the mainstream — until the nineteenth century replaced infinitesimals with limits to settle a crisis of rigour, and the intuitive layered world got branded "not rigorous" and pushed out of the introductory course.</p>
+
+    <p>By the twentieth century it had been vindicated — Abraham Robinson (1961) made infinitesimals fully rigorous again, and modern geometry formalised the "orders" as <em>jets</em>. The intuition you started with was right all along. The textbooks simply never got the memo.</p>
+
+    <p class="pull">A function is its series; the series is read one floor at a time; and the whole of calculus is that single act, forward and back.</p>
+
+    <div class="btn-row">
+      <a class="btn" href="the-proof.html">Return to the keystone proof →</a>
+      <a class="btn ghost" href="index.html">Back to the start</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="pager">
+      <a href="the-proof.html"><span class="label">Back</span>← The Proof</a>
+      <a href="index.html"><span class="label">Home</span>The Idea →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Calculus from First Principles</strong> — The Hidden World of Orders of the Infinitely Small</p>
+    <p>In the lineage of Madhava and the Kerala school, Newton, Taylor, and Euler — and vindicated by Robinson.</p>
+  </div>
+</footer>
+
+</body>
+</html>
